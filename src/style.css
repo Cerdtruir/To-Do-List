@@ -1,0 +1,45 @@
+body {
+  box-sizing: border-box;
+  background-color: rgb(236, 236, 236);
+}
+.todo-list {
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 50px;
+}
+
+.list-item {
+  padding: 20px;
+  border-bottom: 1px lightgray solid;
+  font-size: 20px;
+}
+
+.list-span {
+  float: right;
+}
+
+.list-move:hover {
+  cursor: move;
+}
+
+.list-bold {
+  font-weight: bold;
+}
+
+.list-italics {
+  font-style: italic;
+  color: rgb(158, 157, 157);
+}
+
+.checkbox {
+  font-size: 26px;
+  margin: 3px;
+  color: lightgray;
+}
+
+.last-item {
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(236, 236, 236);
+}
