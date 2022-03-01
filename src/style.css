@@ -1,7 +1,8 @@
 body {
   box-sizing: border-box;
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(236 236 236);
 }
+
 .todo-list {
   background-color: white;
   list-style: none;
@@ -29,7 +30,7 @@ body {
 
 .list-italics {
   font-style: italic;
-  color: rgb(158, 157, 157);
+  color: rgb(158 157 157);
 }
 
 .checkbox {
@@ -41,5 +42,5 @@ body {
 .last-item {
   padding: 30px;
   text-align: center;
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(236 236 236);
 }
