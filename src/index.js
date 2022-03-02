@@ -8,17 +8,21 @@ const todoItems = [
   { index: 2, description: 'Eat Supper', completed: false },
 ];
 
-let currentIndex = 0;
-for (let i = 0; i < todoItems.length; i += 1) {
-  const task = todoItems[i];
-  if (task.index === currentIndex) {
-    const content = document.createElement('li');
-    content.innerHTML = `<span class="checkbox">&#9634;</span> ${task.description} <span class="list-span list-move">&#xFE19;</span>`;
-    content.classList.add('list-item');
-    const lastItem = document.body.querySelector('.last-item');
-    const listMain = document.body.querySelector('.todo-list');
-    listMain.insertBefore(content, lastItem);
-    currentIndex += 1;
-    i = -1;
+const tasksHTML = function () {
+  let currentIndex = 0;
+  for (let i = 0; i < todoItems.length; i += 1) {
+    const task = todoItems[i];
+    if (task.index === currentIndex) {
+      const content = document.createElement('li');
+      content.innerHTML = `<span class="checkbox">&#9634;</span> ${task.description} <span class="list-span list-move">&#xFE19;</span>`;
+      content.classList.add('list-item');
+      const lastItem = document.body.querySelector('.last-item');
+      const listMain = document.body.querySelector('.todo-list');
+      listMain.insertBefore(content, lastItem);
+      currentIndex += 1;
+      i = -1;
+    }
   }
-}
+};
+
+tasksHTML();
