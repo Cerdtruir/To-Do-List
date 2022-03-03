@@ -3,7 +3,7 @@ import _ from 'lodash';
 import './style.css';
 import checkbox from './completed.js';
 
-const todoItems = [
+let todoItems = [
   { index: 1, description: 'Eat Lunch', completed: false },
   { index: 0, description: 'Eat Breakfast', completed: false },
   { index: 2, description: 'Eat Supper', completed: false },
@@ -34,4 +34,8 @@ function tasksHTML() {
   checkbox(todoItems);
 }
 
-tasksHTML();
+if (localStorage.getItem('storedTasks')) {
+  todoItems = JSON.parse(localStorage.getItem('storedTasks'));
+  tasksHTML();
+}
+

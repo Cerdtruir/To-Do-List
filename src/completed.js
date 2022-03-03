@@ -4,6 +4,8 @@ export default function checkbox(todoItems) {
       checkbox.parentElement.classList.toggle('mark-completed');
       const index = todoItems[checkbox.parentElement.id];
       index.completed = !index.completed;
+      const stringifiedTasks = JSON.stringify(todoItems);
+      localStorage.setItem('storedTasks', stringifiedTasks);
     };
   });
 }
