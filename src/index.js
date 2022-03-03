@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import _ from 'lodash';
 import './style.css';
+import checkbox from './completed.js';
 
 const todoItems = [
   { index: 1, description: 'Eat Lunch', completed: false },
@@ -30,7 +31,7 @@ function tasksHTML() {
     i += 1;
   });
 
-  }
-};
+  checkbox(todoItems);
+}
 
 tasksHTML();
