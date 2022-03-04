@@ -2,12 +2,9 @@
 import _ from 'lodash';
 import './style.css';
 import checkbox from './completed.js';
+import newTask from './tasksArray.js';
 
-let todoItems = [
-  { index: 1, description: 'Eat Lunch', completed: false },
-  { index: 0, description: 'Eat Breakfast', completed: false },
-  { index: 2, description: 'Eat Supper', completed: false },
-];
+let todoItems = [];
 
 const lastItem = document.body.querySelector('.last-item');
 const listMain = document.body.querySelector('.todo-list');
@@ -33,6 +30,13 @@ function tasksHTML() {
 
   checkbox(todoItems);
 }
+
+document.body.querySelector('.list-button').onclick = () => {
+  todoItems.push(newTask(tasksHTML.length + 1));
+  const stringifiedTasks = JSON.stringify(todoItems);
+  localStorage.setItem('storedTasks', stringifiedTasks);
+  tasksHTML();
+};
 
 if (localStorage.getItem('storedTasks')) {
   todoItems = JSON.parse(localStorage.getItem('storedTasks'));

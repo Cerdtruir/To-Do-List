@@ -33,9 +33,18 @@ body {
   font-weight: bold;
 }
 
-.list-italics {
+.list-add {
   font-style: italic;
   color: rgb(158 157 157);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-text {
+  width: 90%;
+  border: none;
+  justify-self: center;
 }
 
 .checkbox {
