@@ -44,6 +44,11 @@ const removeComplete = document.body.querySelector('.last-item');
 function removeCompleted() {
   const filteredTodoItems = todoItems.filter((i) => i.completed === false);
   todoItems = filteredTodoItems;
+  let i = 0;
+  todoItems.forEach((task) => {
+    task.index = i;
+    i += 1;
+  });
   const stringifiedTasks = JSON.stringify(filteredTodoItems);
   localStorage.setItem('storedTasks', stringifiedTasks);
   tasksHTML();
