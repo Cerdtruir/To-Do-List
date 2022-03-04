@@ -42,15 +42,9 @@ if (localStorage.getItem('storedTasks')) {
 const removeComplete = document.body.querySelector('.last-item');
 
 function removeCompleted() {
-  for (let i = 0; i < todoItems.length; i += 1) {
-    const aaa = todoItems[i];
-    if (aaa.completed === true) {
-      todoItems.splice(i, 1);
-      console.log(todoItems);
-      i -= 1;
-    }
-  }
-  const stringifiedTasks = JSON.stringify(todoItems);
+  const filteredTodoItems = todoItems.filter((i) => i.completed === false);
+  todoItems = filteredTodoItems;
+  const stringifiedTasks = JSON.stringify(filteredTodoItems);
   localStorage.setItem('storedTasks', stringifiedTasks);
   tasksHTML();
 }
