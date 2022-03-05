@@ -14,3 +14,15 @@ export function pressEnter() {
   };
 }
 
+export function editTask(element, array, tasksHTML) {
+  element.onkeydown = function (e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      const changedID = this.parentElement.id;
+      array[changedID].description = element.innerHTML;
+      const stringifiedTasks = JSON.stringify(array);
+      localStorage.setItem('storedTasks', stringifiedTasks);
+      tasksHTML();
+    }
+  };
+}

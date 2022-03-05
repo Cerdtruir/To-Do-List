@@ -17,16 +17,20 @@ function tasksHTML() {
   let i = 0;
   todoItems.forEach((task) => {
     const content = document.createElement('li');
-    content.innerHTML = `<span class="checkbox">&#9634;</span> ${task.description} <span class="list-span list-move">&#xFE19;</span>`;
+    content.innerHTML = `<p class="checkbox">&#9634;</p> <p class="task-description">${task.description}<p> <p class="list-span list-move">&#xFE19;</p>`;
     content.id = i;
     content.classList.add('list-item', 'list-task');
+
     if (task.completed === true) {
       content.classList.add('mark-completed');
     }
     listMain.insertBefore(content, lastItem);
     i += 1;
   });
-
+  document.body.querySelectorAll('.task-description').forEach((element) => {
+    element.contentEditable = true;
+    editTask(element, todoItems, tasksHTML);
+  });
   checkbox(todoItems);
 }
 
