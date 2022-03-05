@@ -13,7 +13,6 @@ function tasksHTML() {
   document.body.querySelectorAll('.list-task').forEach((element) => {
     element.remove();
   });
-
   todoItems.sort((a, b) => a.index - b.index);
   let i = 0;
   todoItems.forEach((task) => {
@@ -32,7 +31,11 @@ function tasksHTML() {
 }
 
 document.body.querySelector('.list-button').onclick = () => {
-  todoItems.push(newTask(tasksHTML.length + 1));
+  const newInputTask = newTask(tasksHTML.length + 1);
+  if (newInputTask.description === '') {
+    return;
+  }
+  todoItems.push(newInputTask);
   const stringifiedTasks = JSON.stringify(todoItems);
   localStorage.setItem('storedTasks', stringifiedTasks);
   tasksHTML();
