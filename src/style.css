@@ -38,6 +38,10 @@ body {
   cursor: move;
 }
 
+.trash:hover {
+  cursor: pointer;
+}
+
 .list-bold {
   font-weight: bold;
 }

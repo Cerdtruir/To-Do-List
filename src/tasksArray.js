@@ -15,21 +15,36 @@ export function pressEnter() {
 }
 
 export function editTask(element, array, tasksHTML) {
-  element.addEventListener('blur', function () {
-    const changedID = this.parentElement.id;
-    array[changedID].description = element.innerHTML;
-    const stringifiedTasks = JSON.stringify(array);
-    localStorage.setItem('storedTasks', stringifiedTasks);
-    tasksHTML();
-  });
   element.onkeydown = function (e) {
     if (e.keyCode === 13) {
       e.preventDefault();
-      const changedID = this.parentElement.id;
-      array[changedID].description = element.innerHTML;
+      array[this.parentElement.id].description = element.innerHTML;
       const stringifiedTasks = JSON.stringify(array);
       localStorage.setItem('storedTasks', stringifiedTasks);
-      tasksHTML();
+      this.blur();
     }
   };
+
+  element.addEventListener('focus', function () {
+    let deletedID = false;
+    this.parentElement.style.backgroundColor = 'lightyellow';
+    const trash = this.parentElement.querySelector('.list-move');
+    trash.innerHTML = '&#128465;';
+    trash.classList.add('trash');
+    trash.onmousedown = function () {
+      deletedID = true;
+      array.splice(trash.parentElement.id, 1);
+      const stringifiedTasks = JSON.stringify(array);
+      localStorage.setItem('storedTasks', stringifiedTasks);
+    };
+    element.addEventListener('blur', () => {
+      if (deletedID === false) {
+        const changedID = this.parentElement.id;
+        array[changedID].description = element.innerHTML;
+        const stringifiedTasks = JSON.stringify(array);
+        localStorage.setItem('storedTasks', stringifiedTasks);
+      }
+      tasksHTML();
+    });
+  });
 }
