@@ -25,6 +25,11 @@ body {
   float: right;
 }
 
+.list-button {
+  border: none;
+  background: none;
+}
+
 .list-move:hover {
   cursor: move;
 }
@@ -43,8 +48,10 @@ body {
 
 .list-text {
   width: 90%;
+  height: 20px;
   border: none;
   justify-self: center;
+  resize: none;
 }
 
 .checkbox {
