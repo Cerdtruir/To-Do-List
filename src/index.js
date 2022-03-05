@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import './style.css';
 import checkbox from './completed.js';
-import newTask from './tasksArray.js';
+import newTask, { pressEnter, editTask } from './tasksArray.js';
 
 let todoItems = [];
 
@@ -60,5 +60,7 @@ function removeCompleted() {
   localStorage.setItem('storedTasks', stringifiedTasks);
   tasksHTML();
 }
+
+pressEnter();
 
 removeComplete.onclick = removeCompleted;
