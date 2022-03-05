@@ -30,6 +30,10 @@ body {
   background: none;
 }
 
+.list-move {
+  margin: 0 0 0 auto;
+}
+
 .list-move:hover {
   cursor: move;
 }
@@ -46,12 +50,22 @@ body {
   justify-content: space-between;
 }
 
+.list-task {
+  display: flex;
+  align-items: center;
+}
+
 .list-text {
   width: 90%;
   height: 20px;
   border: none;
   justify-self: center;
   resize: none;
+}
+
+.task-description {
+  margin: 0 10px;
+  width: 100%;
 }
 
 .checkbox {
