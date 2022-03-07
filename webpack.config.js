@@ -1,5 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const productionConfig = merge([
+  {
+    output: {
+      publicPath: '/To-Do-List/',
+    },
+  },
+]);
 
 module.exports = {
   mode: 'production',
