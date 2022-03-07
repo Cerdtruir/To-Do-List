@@ -2,7 +2,7 @@
 import _ from 'lodash';
 import './style.css';
 import checkbox from './completed.js';
-import newTask, { pressEnter, editTask } from './tasksArray.js';
+import newTask, { enterToAddTask, editTask } from './tasksArray.js';
 
 let todoItems = [];
 
@@ -36,6 +36,8 @@ function tasksHTML() {
   checkbox(todoItems, tasksHTML);
 }
 
+enterToAddTask();
+
 document.body.querySelector('.list-button').onclick = () => {
   const newInputTask = newTask(tasksHTML.length + 1);
   if (newInputTask.description === '') {
@@ -65,7 +67,5 @@ function removeCompleted() {
   todoItems = filteredTodoItems;
   tasksHTML();
 }
-
-pressEnter();
 
 removeComplete.onclick = removeCompleted;

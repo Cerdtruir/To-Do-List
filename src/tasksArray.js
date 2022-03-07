@@ -5,7 +5,7 @@ export default function newTask(index) {
   return output;
 }
 
-export function pressEnter() {
+export function enterToAddTask() {
   document.body.querySelector('.list-text').onkeydown = function (e) {
     if (e.keyCode === 13) {
       e.preventDefault();
