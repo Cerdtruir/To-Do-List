@@ -15,6 +15,7 @@ export function pressEnter() {
 }
 
 export function editTask(element, array, tasksHTML) {
+  // Enter to save
   element.onkeydown = function (e) {
     if (e.keyCode === 13) {
       e.preventDefault();
@@ -24,7 +25,7 @@ export function editTask(element, array, tasksHTML) {
       this.blur();
     }
   };
-
+  // click on to edit
   element.addEventListener('focus', function () {
     let deletedID = false;
     this.parentElement.style.backgroundColor = 'lightyellow';
@@ -35,6 +36,7 @@ export function editTask(element, array, tasksHTML) {
       deletedID = true;
       array.splice(trash.parentElement.id, 1);
     };
+    // Save on click away
     element.addEventListener('blur', () => {
       if (deletedID === false) {
         const changedID = this.parentElement.id;
