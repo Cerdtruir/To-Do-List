@@ -44,8 +44,6 @@ document.body.querySelector('.list-button').onclick = () => {
     return;
   }
   todoItems.push(newInputTask);
-  const stringifiedTasks = JSON.stringify(todoItems);
-  localStorage.setItem('storedTasks', stringifiedTasks);
   tasksHTML();
 };
 
