@@ -34,15 +34,11 @@ export function editTask(element, array, tasksHTML) {
     trash.onmousedown = function () {
       deletedID = true;
       array.splice(trash.parentElement.id, 1);
-      const stringifiedTasks = JSON.stringify(array);
-      localStorage.setItem('storedTasks', stringifiedTasks);
     };
     element.addEventListener('blur', () => {
       if (deletedID === false) {
         const changedID = this.parentElement.id;
         array[changedID].description = element.innerHTML;
-        const stringifiedTasks = JSON.stringify(array);
-        localStorage.setItem('storedTasks', stringifiedTasks);
       }
       tasksHTML();
     });

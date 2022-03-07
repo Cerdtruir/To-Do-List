@@ -10,6 +10,8 @@ const lastItem = document.body.querySelector('.last-item');
 const listMain = document.body.querySelector('.todo-list');
 
 function tasksHTML() {
+  const stringifiedTasks = JSON.stringify(todoItems);
+  localStorage.setItem('storedTasks', stringifiedTasks);
   document.body.querySelectorAll('.list-task').forEach((element) => {
     element.remove();
   });
@@ -31,7 +33,7 @@ function tasksHTML() {
     element.contentEditable = true;
     editTask(element, todoItems, tasksHTML);
   });
-  checkbox(todoItems);
+  checkbox(todoItems, tasksHTML);
 }
 
 document.body.querySelector('.list-button').onclick = () => {
@@ -60,8 +62,7 @@ function removeCompleted() {
     task.index = i;
     i += 1;
   });
-  const stringifiedTasks = JSON.stringify(filteredTodoItems);
-  localStorage.setItem('storedTasks', stringifiedTasks);
+  todoItems = filteredTodoItems;
   tasksHTML();
 }
 
