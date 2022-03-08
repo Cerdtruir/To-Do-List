@@ -10,6 +10,11 @@ const lastItem = document.body.querySelector('.last-item');
 const listMain = document.body.querySelector('.todo-list');
 
 function tasksHTML() {
+  let counter = 0;
+  todoItems.forEach((task) => {
+    task.index = counter;
+    counter += 1;
+  });
   const stringifiedTasks = JSON.stringify(todoItems);
   localStorage.setItem('storedTasks', stringifiedTasks);
   document.body.querySelectorAll('.list-task').forEach((element) => {
@@ -56,12 +61,6 @@ const removeComplete = document.body.querySelector('.last-item');
 
 function removeCompleted() {
   const filteredTodoItems = todoItems.filter((i) => i.completed === false);
-  todoItems = filteredTodoItems;
-  let i = 0;
-  todoItems.forEach((task) => {
-    task.index = i;
-    i += 1;
-  });
   todoItems = filteredTodoItems;
   tasksHTML();
 }
