@@ -39,7 +39,7 @@ function tasksHTML() {
 enterToAddTask();
 
 document.body.querySelector('.list-button').onclick = () => {
-  const newInputTask = newTask(tasksHTML.length + 1);
+  const newInputTask = newTask(todoItems.length);
   if (newInputTask.description === '') {
     return;
   }
