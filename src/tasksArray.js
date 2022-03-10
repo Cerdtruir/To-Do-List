@@ -14,6 +14,12 @@ export function enterToAddTask() {
   };
 }
 
+export function removeCompleted(todoItems, tasksHTML) {
+  const filteredTodoItems = todoItems.filter((i) => i.completed === false);
+  todoItems = filteredTodoItems;
+  tasksHTML();
+}
+
 export function editTask(element, array, tasksHTML) {
   // Enter to save
   element.onkeydown = function (e) {

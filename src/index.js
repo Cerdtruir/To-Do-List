@@ -2,7 +2,11 @@
 import _ from 'lodash';
 import './style.css';
 import checkbox from './completed.js';
-import newTask, { enterToAddTask, editTask } from './tasksArray.js';
+import newTask, {
+  enterToAddTask,
+  editTask,
+  removeCompleted,
+} from './tasksArray.js';
 
 let todoItems = [];
 
@@ -59,10 +63,4 @@ if (localStorage.getItem('storedTasks')) {
 
 const removeComplete = document.body.querySelector('.last-item');
 
-function removeCompleted() {
-  const filteredTodoItems = todoItems.filter((i) => i.completed === false);
-  todoItems = filteredTodoItems;
-  tasksHTML();
-}
-
-removeComplete.onclick = removeCompleted;
+removeComplete.onclick = removeCompleted(todoItems, tasksHTML);
