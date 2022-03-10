@@ -20,8 +20,11 @@ export function removeCompleted(todoItems, tasksHTML) {
   tasksHTML();
 }
 
+export function removeTask(trash, array) {
+  array.splice(trash.parentElement.id, 1);
+}
+
 export function editTask(element, array, tasksHTML) {
-  // Enter to save
   element.onkeydown = function (e) {
     if (e.keyCode === 13) {
       e.preventDefault();
@@ -29,9 +32,9 @@ export function editTask(element, array, tasksHTML) {
       const stringifiedTasks = JSON.stringify(array);
       localStorage.setItem('storedTasks', stringifiedTasks);
       this.blur();
+      tasksHTML();
     }
   };
-  // click on to edit
   element.addEventListener('focus', function () {
     let deletedID = false;
     this.parentElement.style.backgroundColor = 'lightyellow';
@@ -40,7 +43,7 @@ export function editTask(element, array, tasksHTML) {
     trash.classList.add('trash');
     trash.onmousedown = function () {
       deletedID = true;
-      array.splice(trash.parentElement.id, 1);
+      removeTask(trash, array);
     };
     // Save on click away
     element.addEventListener('blur', () => {
