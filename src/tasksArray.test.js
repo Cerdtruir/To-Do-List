@@ -58,19 +58,39 @@ describe('Test newTask', () => {
 
 describe('remove a task', () => {
   test('Check if task is removed from the array', () => {
-    document.body.innerHTML =
-      '<div>' +
-      '  <ul id="list"><li id="0" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li></ul>' +
-      '</div>';
-    let array = [
-      {
-        index: 1,
-        description: 'test',
-        completed: false,
-      },
-    ];
     const trash = document.body.querySelector('.list-move');
     removeTask(trash, array);
-    expect(array).toStrictEqual([]);
+    expect(array).toStrictEqual([
+      {
+        index: 1,
+        description: 'test 2',
+        completed: true,
+      },
+      {
+        index: 2,
+        description: 'test 3',
+        completed: false,
+      },
+    ]);
+  });
+});
+
+describe('remove all completed', () => {
+  test('Check if completed task are removed', () => {
+    array[2] = {
+      index: 3,
+      description: 'test',
+      completed: true,
+    };
+    expect(removeCompleted(array)).toStrictEqual([
+      {
+        index: 2,
+        description: 'test 3',
+        completed: false,
+      },
+    ]);
+  });
+});
+
   });
 });
