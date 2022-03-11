@@ -92,5 +92,30 @@ describe('remove all completed', () => {
   });
 });
 
+describe('Edit Task', () => {
+  const element = document.body.querySelectorAll('.task-description')[0];
+  test('Check if task is put into editor mode', () => {
+    editTask(element, array, MocktasksHTML);
+    element.focus();
+    expect(element.parentElement.style.backgroundColor).toBe('lightyellow');
+  });
+  test('Check if task is edited on enter', () => {
+    document.body.querySelectorAll('.task-description')[2].innerHTML =
+      'edited test';
+    document.body.querySelectorAll('.task-description').forEach((element1) => {
+      editTask(element1, array, MocktasksHTML);
+      element1.dispatchEvent(event);
+    });
+    expect(array[2].description).toBe('edited test');
+  });
+  test('Check if task is edited on click away', () => {
+    document.body.querySelectorAll('.task-description')[1].innerHTML =
+      'edited test click away';
+    document.body.querySelectorAll('.task-description').forEach((element2) => {
+      element2.focus();
+      editTask(element2, array, MocktasksHTML);
+      element2.blur();
+    });
+    expect(array[1].description).toBe('edited test click away');
   });
 });
