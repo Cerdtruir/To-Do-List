@@ -14,10 +14,9 @@ export function enterToAddTask() {
   };
 }
 
-export function removeCompleted(todoItems, tasksHTML) {
-  const filteredTodoItems = todoItems.filter((i) => i.completed === false);
-  todoItems = filteredTodoItems;
-  tasksHTML();
+export function removeCompleted(todoItems) {
+  todoItems = todoItems.filter((i) => i.completed === false);
+  return todoItems;
 }
 
 export function removeTask(trash, array) {
