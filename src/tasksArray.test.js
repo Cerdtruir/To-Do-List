@@ -1,4 +1,8 @@
-import newTask, { removeTask } from './tasksArray.js';
+import newTask, {
+  removeTask,
+  editTask,
+  removeCompleted,
+} from './tasksArray.js';
 
 describe('Test newTask', () => {
   test('Check for correct output', () => {
