@@ -37,18 +37,19 @@ function MocktasksHTML() {
 }
 
 const event = new KeyboardEvent('keydown', { keyCode: 13 });
+
+describe('Test newTask', () => {
+  document.querySelector('.list-text').value = 'clicked add';
+
+  test('Check for correct output', () => {
     expect(newTask(1)).toStrictEqual({
       index: 1,
-      description: 'test',
+      description: 'clicked add',
       completed: false,
     });
   });
 
   test('Make sure the textbox resets', () => {
-    document.body.innerHTML =
-      '<div>' +
-      '  <ul id="list"><li> <textarea placeholder="Add to your list..." class="list-text" contenteditable="true">test</textarea></li></ul>' +
-      '</div>';
     newTask(1);
     const textbox = document.querySelector('.list-text').value;
     expect(textbox).toBe('');
