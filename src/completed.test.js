@@ -1,6 +1,6 @@
 import checkbox from './completed';
 
-let array = [
+const array = [
   {
     index: 0,
     description: 'test',
@@ -18,15 +18,14 @@ let array = [
   },
 ];
 
-document.body.innerHTML =
-  '<div>' +
-  ' <ul id="list">' +
-  '   <li> <textarea placeholder="Add to your list..." class="list-text" contenteditable="true">test</textarea></li>' +
-  '   <li id="0" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li>' +
-  '   <li id="1" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li>' +
-  '   <li id="2" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li>' +
-  ' </ul>' +
-  '</div>';
+document.body.innerHTML = '<div>'
+  + ' <ul id="list">'
+  + '   <li> <textarea placeholder="Add to your list..." class="list-text" contenteditable="true">test</textarea></li>'
+  + '   <li id="0" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li>'
+  + '   <li id="1" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li>'
+  + '   <li id="2" class="list-item list-task"><p class="checkbox">▢</p> <p class="task-description" contenteditable="true">test</p><p> </p><p class="list-span list-move">︙</p></li>'
+  + ' </ul>'
+  + '</div>';
 
 function MocktasksHTML() {
   return 'tasksHtml';
