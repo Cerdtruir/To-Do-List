@@ -18,7 +18,7 @@ body {
 
 .mark-completed {
   font-style: italic;
-  text-decoration: line-through;
+  background-color: lightgreen;
 }
 
 .list-span {
