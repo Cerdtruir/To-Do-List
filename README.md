@@ -9,6 +9,14 @@ A todo list webapp
 - CSS
 - JavaScript
 
+## Screenshot
+
+![screenshot](/src/Screenshot.png)
+
+## Live Demo
+
+[Live Demo Link](https://luminous-mandazi-6facd5.netlify.app/)
+
 ## Live Demo
 
 
