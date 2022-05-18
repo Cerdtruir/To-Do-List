@@ -46,6 +46,7 @@ function tasksHTML() {
 
     if (task.completed === true) {
       content.classList.add('mark-completed');
+      checkbox.innerText = '\u2714';
     }
     listMain.insertBefore(content, lastItem);
     i += 1;
