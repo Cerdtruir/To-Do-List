@@ -14,10 +14,9 @@ const lastItem = document.body.querySelector('.last-item');
 const listMain = document.body.querySelector('.todo-list');
 
 function tasksHTML() {
-  let counter = 0;
-  todoItems.forEach((task) => {
-    task.index = counter;
-    counter += 1;
+  todoItems.forEach((task, i) => {
+    task.index = i;
+    i += 1;
   });
   const stringifiedTasks = JSON.stringify(todoItems);
   localStorage.setItem('storedTasks', stringifiedTasks);
