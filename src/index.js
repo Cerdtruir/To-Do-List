@@ -27,9 +27,22 @@ function tasksHTML() {
   let i = 0;
   todoItems.forEach((task) => {
     const content = document.createElement('li');
-    content.innerHTML = `<p class="checkbox">&#9634;</p> <p class="task-description">${task.description}<p> <p class="list-span list-move">&#xFE19;</p>`;
     content.id = i;
     content.classList.add('list-item', 'list-task');
+
+    const checkbox = document.createElement('p');
+    checkbox.classList.add('checkbox');
+    checkbox.innerText = '\u25A2';
+
+    const taskText = document.createElement('p');
+    taskText.classList.add('task-description');
+    taskText.innerText = task.description;
+
+    const listMove = document.createElement('p');
+    listMove.classList.add('list-move');
+    listMove.innerText = '\uFE19';
+
+    content.append(checkbox, taskText, listMove);
 
     if (task.completed === true) {
       content.classList.add('mark-completed');
