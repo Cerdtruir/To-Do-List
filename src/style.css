@@ -84,3 +84,7 @@ body {
   text-align: center;
   background-color: rgb(236 236 236);
 }
+
+.last-item:hover {
+  cursor: pointer;
+}
