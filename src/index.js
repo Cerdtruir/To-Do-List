@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import _ from 'lodash';
 import './style.css';
-import checkbox from './completed.js';
+import checkboxFunctionality from './completed.js';
 import newTask, {
   enterToAddTask,
   editTask,
@@ -31,9 +31,10 @@ function tasksHTML() {
     content.id = i;
     content.classList.add('list-item', 'list-task');
 
-    const checkbox = document.createElement('p');
-    checkbox.classList.add('checkbox');
-    checkbox.innerText = '\u25A2';
+  const checkbox = document.createElement('p');
+  checkbox.classList.add('checkbox');
+  checkbox.innerText = '\u25A2';
+  checkboxFunctionality(checkbox, renderTasksList, todoItems, index);
 
     const taskText = document.createElement('p');
     taskText.classList.add('task-description');
@@ -56,7 +57,6 @@ function tasksHTML() {
     element.contentEditable = true;
     editTask(element, todoItems, tasksHTML);
   });
-  checkbox(todoItems, tasksHTML);
 }
 
 enterToAddTask();

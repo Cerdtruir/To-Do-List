@@ -1,4 +1,4 @@
-import checkbox from './completed';
+import checkboxFunctionality from './completed';
 
 const array = [
   {
@@ -32,7 +32,7 @@ function MocktasksHTML() {
 }
 
 test('make sure array is changing to completed', () => {
-  checkbox(array, MocktasksHTML);
+  checkboxFunctionality(array, MocktasksHTML);
   document.body.querySelectorAll('.checkbox')[1].click();
   expect(array[1].completed).toBe(true);
 });
