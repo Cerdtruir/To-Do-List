@@ -31,8 +31,8 @@ const array = [
   },
 ];
 
-function MocktasksHTML() {
-  return 'tasksHtml';
+function MockrenderTasksList() {
+  return 'renderTasksList';
 }
 
 const event = new KeyboardEvent('keydown', { keyCode: 13 });
@@ -94,14 +94,14 @@ describe('remove all completed', () => {
 describe('Edit Task', () => {
   const element = document.body.querySelectorAll('.task-description')[0];
   test('Check if task is put into editor mode', () => {
-    editTask(element, array, MocktasksHTML);
+    editTask(element, array, MockrenderTasksList);
     element.focus();
     expect(element.parentElement.style.backgroundColor).toBe('lightyellow');
   });
   test('Check if task is edited on enter', () => {
     document.body.querySelectorAll('.task-description')[2].innerHTML = 'edited test';
     document.body.querySelectorAll('.task-description').forEach((element1) => {
-      editTask(element1, array, MocktasksHTML);
+      editTask(element1, array, MockrenderTasksList);
       element1.dispatchEvent(event);
     });
     expect(array[2].description).toBe('edited test');
@@ -110,7 +110,7 @@ describe('Edit Task', () => {
     document.body.querySelectorAll('.task-description')[1].innerHTML = 'edited test click away';
     document.body.querySelectorAll('.task-description').forEach((element2) => {
       element2.focus();
-      editTask(element2, array, MocktasksHTML);
+      editTask(element2, array, MockrenderTasksList);
       element2.blur();
     });
     expect(array[1].description).toBe('edited test click away');

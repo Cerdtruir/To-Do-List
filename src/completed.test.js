@@ -27,12 +27,12 @@ document.body.innerHTML = '<div>'
   + ' </ul>'
   + '</div>';
 
-function MocktasksHTML() {
-  return 'tasksHtml';
+function MockrenderTasksList() {
+  return 'renderTasksList';
 }
 
 test('make sure array is changing to completed', () => {
-  checkboxFunctionality(array, MocktasksHTML);
+  checkboxFunctionality(array, MockrenderTasksList);
   document.body.querySelectorAll('.checkbox')[1].click();
   expect(array[1].completed).toBe(true);
 });
