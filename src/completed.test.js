@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import checkboxFunctionality from './completed';
 
 const array = [
@@ -31,8 +35,10 @@ function MockrenderTasksList() {
   return 'renderTasksList';
 }
 
+const checkbox = document.getElementById('1');
+
 test('make sure array is changing to completed', () => {
-  checkboxFunctionality(array, MockrenderTasksList);
+  checkboxFunctionality(checkbox, MockrenderTasksList, array, 1);
   document.body.querySelectorAll('.checkbox')[1].click();
   expect(array[1].completed).toBe(true);
 });
