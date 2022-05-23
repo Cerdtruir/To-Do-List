@@ -1,0 +1,90 @@
+body {
+  box-sizing: border-box;
+  background-color: rgb(236 236 236);
+}
+
+.todo-list {
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 50px;
+}
+
+.list-item {
+  padding: 20px;
+  border-bottom: 1px lightgray solid;
+  font-size: 20px;
+}
+
+.mark-completed {
+  font-style: italic;
+  background-color: lightgreen;
+}
+
+.list-span {
+  float: right;
+}
+
+.list-button {
+  border: none;
+  background: none;
+}
+
+.list-move {
+  margin: 0 0 0 auto;
+}
+
+.list-move:hover {
+  cursor: move;
+}
+
+.trash:hover {
+  cursor: pointer;
+}
+
+.list-bold {
+  font-weight: bold;
+}
+
+.list-add {
+  font-style: italic;
+  color: rgb(158 157 157);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-task {
+  display: flex;
+  align-items: center;
+}
+
+.list-text {
+  width: 100%;
+  height: 16px;
+  border: none;
+  justify-self: center;
+  resize: none;
+}
+
+.task-description {
+  margin: 0 10px;
+  width: 90%;
+}
+
+.checkbox {
+  font-size: 26px;
+  margin: 3px;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.last-item {
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(236 236 236);
+}
+
+.last-item:hover {
+  cursor: pointer;
+}
