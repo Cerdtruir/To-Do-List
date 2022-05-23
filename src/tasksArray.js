@@ -19,8 +19,8 @@ export function removeCompleted(todoItems) {
   return todoItems;
 }
 
-export function removeTask(trash, array) {
-  array.splice(trash.parentElement.id, 1);
+export function removeTask(index, array) {
+  array.splice(index, 1);
 }
 
 export function editTask(element, todoItems, index, renderTasksList) {
@@ -31,7 +31,7 @@ export function editTask(element, todoItems, index, renderTasksList) {
   trash.classList.add('trash');
   trash.onmousedown = function () {
     deletedID = true;
-    removeTask(trash, todoItems);
+    removeTask(index, todoItems);
   };
   // Save on click away
   element.addEventListener('blur', () => {
