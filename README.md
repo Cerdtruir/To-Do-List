@@ -17,9 +17,6 @@ A todo list webapp
 
 [Live Demo Link](https://luminous-mandazi-6facd5.netlify.app/)
 
-## Live Demo
-
-
 ## Authors
 
 👤 **Cerdtruir**
