@@ -78,6 +78,6 @@ if (localStorage.getItem('storedTasks')) {
 const removeComplete = document.body.querySelector('.last-item');
 
 removeComplete.onclick = () => {
-  todoItems = removeCompleted(todoItems, tasksHTML);
+  todoItems = removeCompleted(todoItems);
   tasksHTML();
 };
